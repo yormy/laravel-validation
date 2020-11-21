@@ -11,5 +11,4 @@ class DetailsTest extends TestCase
     {
         $this->assertTrue(true);
     }
-
 }
