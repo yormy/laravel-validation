@@ -33,8 +33,6 @@ public function rules()
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 /**
  * Determine if all of the values in the input array exist as attributes for the given model class.
  * By default the rule assumes that you want to validate using id attribute.

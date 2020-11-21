@@ -30,8 +30,6 @@ public function rules()
 */
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 use Illuminate\Support\Facades\Auth;
 
 /**

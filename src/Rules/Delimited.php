@@ -2,8 +2,6 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;

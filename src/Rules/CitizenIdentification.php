@@ -2,14 +2,11 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 use Modules\Core\Rules\Support\Iso3166Alpha2;
 use Modules\Core\Rules\Support\Iso3166Alpha3;
 
 class CitizenIdentification extends Rule
 {
-
     /**
      * Determine if the validation rule passes.
      *
@@ -45,10 +42,6 @@ class CitizenIdentification extends Rule
         }
     }
 
-
-
-
-
     /**
      * Verify whether the given value is a valid French citizen number.
      *
@@ -61,8 +54,6 @@ class CitizenIdentification extends Rule
         ) > 0;
     }
 
-
-
     /**
      * Verify whether the given value is a valid United Kingdom citizen number.
      *
@@ -72,8 +63,6 @@ class CitizenIdentification extends Rule
         return preg_match('/^[A-CEGHJ-PR-TW-Z]{1}[A-CEGHJ-NPR-TW-Z]{1}[0-9]{6}[A-DFM]{0,1}$/', $value) > 0;
     }
 
-
-
     /**
      * Verify whether the given value is a valid United States citizen number.
      *
@@ -82,8 +71,6 @@ class CitizenIdentification extends Rule
     {
         return preg_match('/^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$/', $value) > 0;
     }
-
-
 
     /**
      * Verify whether the given value is a valid Brazil citizen number.
@@ -97,7 +84,7 @@ class CitizenIdentification extends Rule
             return false;
         }
 
-        for ($t = 9; $t < 11; $t+=1) {
+        for ($t = 9; $t < 11; $t += 1) {
             for ($d = 0, $c = 0; $c < $t; $c++) {
                 $d += $value[$c] * (($t + 1) - $c);
             }
@@ -123,7 +110,7 @@ class CitizenIdentification extends Rule
             $key,
             [
                 'attribute' => $this->getAttribute(),
-                'example' => $this->example()
+                'example' => $this->example(),
             ]
         );
 

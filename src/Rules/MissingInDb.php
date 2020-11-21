@@ -2,10 +2,9 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Exceptions\RuleSetupException;
-use Modules\Core\Rules\Rule;
-
 use Illuminate\Support\Facades\DB;
+
+use Modules\Core\Rules\Exceptions\RuleSetupException;
 
 /**
  * Requires that the given value is not present in a given database table / column - see class for details
@@ -14,7 +13,6 @@ use Illuminate\Support\Facades\DB;
  */
 class MissingInDb extends Rule
 {
-
     private $table = null;
     private $column = null;
 

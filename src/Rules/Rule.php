@@ -2,11 +2,11 @@
 
 namespace Modules\Core\Rules;
 
-use Illuminate\Contracts\Validation\Rule as BaseRule;
-use Illuminate\Support\Str;
 use function __;
 use function class_basename;
 use function get_called_class;
+use Illuminate\Contracts\Validation\Rule as BaseRule;
+use Illuminate\Support\Str;
 
 abstract class Rule implements BaseRule
 {

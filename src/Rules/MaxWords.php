@@ -2,9 +2,7 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
 use Modules\Core\Rules\Exceptions\RuleSetupException;
-use Modules\Core\Rules\StringContains;
 
 class MaxWords extends Rule
 {
@@ -43,7 +41,7 @@ class MaxWords extends Rule
             $key,
             [
                 'attribute' => $this->getAttribute(),
-                'max' => $this->maxWords
+                'max' => $this->maxWords,
             ]
         );
 

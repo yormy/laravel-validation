@@ -2,10 +2,8 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
-use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
 
 class EncodedImage extends Rule
 {
@@ -15,7 +13,6 @@ class EncodedImage extends Rule
      *
      **/
     protected $file;
-
 
     /**
      * Write the given data to a temporary file.
@@ -36,8 +33,6 @@ class EncodedImage extends Rule
             true
         );
     }
-
-
 
     /**
      * Determine if the validation rule passes.
@@ -86,7 +81,7 @@ class EncodedImage extends Rule
             $key.'.base',
             [
                 'attribute' => $this->getAttribute(),
-                'type'    => $types,
+                'type' => $types,
             ]
         );
 

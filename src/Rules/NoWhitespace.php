@@ -2,7 +2,6 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
 use function preg_match;
 
 class NoWhitespace extends Rule

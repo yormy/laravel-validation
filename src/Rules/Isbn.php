@@ -2,11 +2,8 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 class Isbn extends Rule
 {
-
     /**
      * Determine if the validation rule passes.
      *

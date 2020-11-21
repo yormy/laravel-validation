@@ -2,8 +2,6 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 /**
  * Allow only Alpha (including umlaut Ü etc and special chars) , dashes whitespace
  * Class AlphaDashWhitespace

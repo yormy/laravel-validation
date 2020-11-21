@@ -2,14 +2,11 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 use Modules\Core\Rules\Support\Iso6391Alpha2;
 use Modules\Core\Rules\Support\Iso6391Alpha3;
 
 class LanguageCode extends Rule
 {
-
     private $iso = 2;
 
     /**
@@ -61,7 +58,7 @@ class LanguageCode extends Rule
             $key,
             [
                 'attribute' => $this->getAttribute(),
-                'iso' => $iso
+                'iso' => $iso,
             ]
         );
 

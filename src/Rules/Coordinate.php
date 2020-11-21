@@ -2,8 +2,6 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 use function explode;
 use function preg_match;
 use function trim;

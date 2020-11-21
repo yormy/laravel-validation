@@ -2,7 +2,6 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
 use function is_string;
 use function mb_strtoupper;
 

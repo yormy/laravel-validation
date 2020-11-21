@@ -27,8 +27,6 @@ public function rules()
  */
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 /**
  * This rule will validate if the value under validation is part of the given enum class.
  * We assume that the enum class has a static toArray method that returns all valid values

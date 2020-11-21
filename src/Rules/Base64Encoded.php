@@ -2,7 +2,6 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
 use function base64_decode;
 use function base64_encode;
 use function preg_match;

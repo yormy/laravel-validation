@@ -2,16 +2,15 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Exceptions\RuleSetupException;
-use Modules\Core\Rules\Rule;
-use Illuminate\Support\Str;
-
 use function __;
 use function array_map;
+
 use function explode;
 use function filter_var;
+use Illuminate\Support\Str;
 use function implode;
 use function in_array;
+use Modules\Core\Rules\Exceptions\RuleSetupException;
 
 /**
  * Only allow emails from whitelisted list of domains
@@ -66,8 +65,8 @@ class DomainRestrictedEmail extends Rule
             'core::validation.'.$this->getMessageKey(),
             [
                 'attribute' => $this->getAttribute(),
-                'plural'    => Str::plural('domain', count($this->validDomains)),
-                'domains'   => implode(
+                'plural' => Str::plural('domain', count($this->validDomains)),
+                'domains' => implode(
                     ', ',
                     array_map(
                         function ($domain) {

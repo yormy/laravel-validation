@@ -2,7 +2,6 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
 use function strip_tags;
 
 class ExcludesHtml extends Rule

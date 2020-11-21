@@ -2,8 +2,6 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 class IsNull extends Rule
 {
     /**

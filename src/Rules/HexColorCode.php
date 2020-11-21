@@ -2,9 +2,8 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-use Illuminate\Support\Str;
 use function __;
+use Illuminate\Support\Str;
 use function preg_match;
 
 /**
@@ -93,7 +92,7 @@ class HexColorCode extends Rule
             $key.'.base',
             [
                 'attribute' => $this->getAttribute(),
-                'length'    => $this->forceSixDigitCode ? 6 : 3,
+                'length' => $this->forceSixDigitCode ? 6 : 3,
             ]
         );
 

@@ -2,11 +2,8 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 class Domain extends Rule
 {
-
     /**
      * Determine if the validation rule passes.
      *

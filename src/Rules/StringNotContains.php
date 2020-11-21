@@ -2,7 +2,6 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
 use Modules\Core\Rules\Exceptions\RuleSetupException;
 
 class StringNotContains extends Rule
@@ -49,7 +48,7 @@ class StringNotContains extends Rule
             $key,
             [
                 'attribute' => $this->getAttribute(),
-                'phrases'   => implode(
+                'phrases' => implode(
                     ', ',
                     array_map(
                         function ($phrases) {

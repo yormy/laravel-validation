@@ -2,15 +2,14 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-use Modules\Core\Rules\Exceptions\RuleSetupException;
-
-use Illuminate\Support\Str;
-
 use function __;
+
 use function array_map;
+
 use function collect;
+use Illuminate\Support\Str;
 use function implode;
+use Modules\Core\Rules\Exceptions\RuleSetupException;
 use function sprintf;
 
 /**
@@ -99,7 +98,7 @@ class StringContains extends Rule
             $key,
             [
                 'attribute' => $this->getAttribute(),
-                'phrases'   => implode(
+                'phrases' => implode(
                     ', ',
                     array_map(
                         function ($phrase) {

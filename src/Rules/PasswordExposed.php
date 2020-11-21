@@ -2,11 +2,9 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
-use Modules\Core\Rules\Factories\PasswordExposedCheckerFactory;
 use DivineOmega\PasswordExposed\Enums\PasswordStatus;
 use DivineOmega\PasswordExposed\PasswordExposedChecker;
+use Modules\Core\Rules\Factories\PasswordExposedCheckerFactory;
 
 /**
  * Check if password is exposed and listed in HaveIBeenPowned
@@ -31,7 +29,7 @@ class PasswordExposed extends Rule
      */
     public function __construct(PasswordExposedChecker $passwordExposedChecker = null)
     {
-        if (!$passwordExposedChecker) {
+        if (! $passwordExposedChecker) {
             $factory = new PasswordExposedCheckerFactory();
             $passwordExposedChecker = $factory->instance();
         }

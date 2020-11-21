@@ -2,8 +2,6 @@
 
 namespace Modules\Core\Rules;
 
-use Modules\Core\Rules\Rule;
-
 use function __;
 use function mb_strlen;
 use function preg_match_all;
