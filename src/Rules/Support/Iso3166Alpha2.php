@@ -1,6 +1,6 @@
 <?php //declare(strict_types = 1);
 
-namespace Modules\Core\Rules\Support;
+namespace Yormy\LaravelValidation\Rules\Support;
 
 class Iso3166Alpha2
 {

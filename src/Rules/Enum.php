@@ -25,7 +25,7 @@ public function rules()
     ];
 }
  */
-namespace Modules\Core\Rules;
+namespace Yormy\LaravelValidation\Rules;
 
 use Modules\Core\Rules\Rule;
 

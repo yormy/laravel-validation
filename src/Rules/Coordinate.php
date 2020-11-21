@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Modules\Core\Rules;
+namespace Yormy\LaravelValidation\Rules;
 
 use Modules\Core\Rules\Rule;
 

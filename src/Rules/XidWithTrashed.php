@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Core\Rules;
+namespace Yormy\LaravelValidation\Rules;
 
 use Akaunting\Firewall\Models\Tarpit;
 use App\Libraries\GlobalHelper;

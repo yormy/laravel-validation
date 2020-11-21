@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Requests\Rules;
+namespace Yormy\LaravelValidation\Rules;
 
 use Exception;
 use Illuminate\Contracts\Validation\Rule;

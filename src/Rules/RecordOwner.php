@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Modules\Core\Rules;
+namespace Yormy\LaravelValidation\Rules;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;

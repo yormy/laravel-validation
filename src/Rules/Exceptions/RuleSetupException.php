@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Core\Rules\Exceptions;
+namespace Yormy\LaravelValidation\Rules\Exceptions;
 
 use InvalidArgumentException;
 

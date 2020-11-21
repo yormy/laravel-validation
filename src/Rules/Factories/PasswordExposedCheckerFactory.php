@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Core\Rules\Factories;
+namespace Yormy\LaravelValidation\Rules\Factories;
 
 use DivineOmega\DOFileCachePSR6\CacheItemPool;
 use DivineOmega\PasswordExposed\PasswordExposedChecker;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Traits;
+namespace Yormy\LaravelValidation\Traits;
 
 trait Xid
 {

@@ -12,6 +12,12 @@ You can install the package via composer:
 ```bash
 composer require yormy/laravel-validation
 ```
+# Adding Xid Id's
+Add to your database migrations
+```
+$table->string('xid')->unique();
+```
+
 
 
 ## Testing

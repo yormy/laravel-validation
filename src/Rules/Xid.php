@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Core\Rules;
+namespace Yormy\LaravelValidation\Rules;
 
 use Illuminate\Support\Facades\Schema;
 use Modules\Core\Observers\Events\TarpitTriggerEvent;
