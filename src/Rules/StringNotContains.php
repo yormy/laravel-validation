@@ -48,7 +48,7 @@ class StringNotContains extends Rule
             $key,
             [
                 'attribute' => $this->getAttribute(),
-                'phrases'   => implode(
+                'phrases' => implode(
                     ', ',
                     array_map(
                         function ($phrases) {

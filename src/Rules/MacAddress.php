@@ -4,7 +4,6 @@ namespace Yormy\LaravelValidation\Rules;
 
 class MacAddress extends Rule
 {
-
     /**
      * Determine if the validation rule passes.
      *
@@ -15,7 +14,6 @@ class MacAddress extends Rule
 
         return preg_match('/^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/', $value) > 0;
     }
-
 
 //
 //    /**

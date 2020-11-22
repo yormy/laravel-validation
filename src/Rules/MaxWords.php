@@ -3,7 +3,6 @@
 namespace Yormy\LaravelValidation\Rules;
 
 use Yormy\LaravelValidation\Rules\Exceptions\RuleSetupException;
-use Yormy\LaravelValidation\Rules\StringContains;
 
 class MaxWords extends Rule
 {
@@ -42,7 +41,7 @@ class MaxWords extends Rule
             $key,
             [
                 'attribute' => $this->getAttribute(),
-                'max' => $this->maxWords
+                'max' => $this->maxWords,
             ]
         );
 

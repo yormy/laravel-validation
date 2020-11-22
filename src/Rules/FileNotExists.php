@@ -44,7 +44,8 @@ class FileNotExists extends Rule
          * @var UploadedFile $value
          */
         $this->filename = $value->getClientOriginalName();
-        return !Storage::exists($this->path . '/' . $this->filename);
+
+        return ! Storage::exists($this->path . '/' . $this->filename);
     }
 
     /**

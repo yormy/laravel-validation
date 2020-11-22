@@ -2,8 +2,8 @@
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
 
 class EncodedImage extends Rule
@@ -20,7 +20,7 @@ class EncodedImage extends Rule
     const WEBP = "webp";
     const JPEG = "jpeg";
 
-    public function __construct(array $parameters =[])
+    public function __construct(array $parameters = [])
     {
         $this->parameters = $parameters;
     }
@@ -63,6 +63,7 @@ class EncodedImage extends Rule
         foreach ($this->parameters as $mime) {
             if (Str::startsWith($value, "data:image/$mime;base64,")) {
                 $valid_mime = true;
+
                 break;
             }
         }
@@ -78,6 +79,7 @@ class EncodedImage extends Rule
 
             return $result;
         }
+
         return false;
     }
 
@@ -95,7 +97,7 @@ class EncodedImage extends Rule
             $key.'.base',
             [
                 'attribute' => $this->getAttribute(),
-                'type'    => $types,
+                'type' => $types,
             ]
         );
 

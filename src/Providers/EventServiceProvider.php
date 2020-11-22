@@ -3,7 +3,6 @@
 namespace Yormy\LaravelValidation\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Yormy\ReferralSystem\Observers\ActionSubscriber;
 
 class EventServiceProvider extends ServiceProvider
 {
