@@ -3,9 +3,8 @@
 namespace Yormy\LaravelValidation\Rules;
 
 use Illuminate\Support\Facades\Schema;
-use Modules\Core\Observers\Events\TarpitTriggerEvent;
+use Yormy\LaravelValidation\Observers\Events\TarpitTriggerEvent;
 use Illuminate\Support\Facades\DB;
-use Modules\Core\Rules\Rule;
 
 class Xid extends Rule
 {
@@ -74,11 +73,11 @@ class Xid extends Rule
     public function message(): string
     {
         if (!$this->showField) {
-            return __('core::validation.xid_hidden_details', ['prefix' => $this->errorPrefix]);
+            return (string)__('core::validation.xid_hidden_details', ['prefix' => $this->errorPrefix]);
         }
 
         $key = 'core::validation.'.$this->getMessageKey();
-        return __(
+        return (string)__(
             $key,
             [
                 'attribute' => $this->getAttribute(),

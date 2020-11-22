@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 /*
 This rule will validate if the value under validation is part of the given enum class.
@@ -26,8 +26,6 @@ public function rules()
 }
  */
 namespace Yormy\LaravelValidation\Rules;
-
-use Modules\Core\Rules\Rule;
 
 /**
  * This rule will validate if the value under validation is part of the given enum class.
@@ -61,7 +59,7 @@ class Enum extends Rule
         $key = 'core::validation.'.$this->getMessageKey();
         $validValues = implode(', ', $this->validValues);
 
-        $message = __(
+        $message = (string)__(
             $key,
             [
                 'attribute' => $this->getAttribute(),

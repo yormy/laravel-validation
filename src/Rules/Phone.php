@@ -1,9 +1,8 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Exceptions\RuleSetupException;
-use Modules\Core\Rules\Rule;
+use Yormy\LaravelValidation\Rules\Exceptions\RuleSetupException;
 
 /**
  * https://github.com/laravel-validation-rules/phone
@@ -42,13 +41,11 @@ class Phone extends Rule
                 return $this->isNANP($value);
             default:
                 throw new RuleSetupException('set the format of verification (phone, e123, 164, nanp)');
-                break;
         }
     }
 
-    private function example()
+    private function example() : string
     {
-        $example = "";
         switch ($this->format) {
             case static::FORMAT_DIGITS:
                 $example = "111111199999";
@@ -104,12 +101,7 @@ class Phone extends Rule
         return $this->isE123($value) || $this->isE164($value) || $this->isNANP($value) || $this->isDigits($value);
     }
 
-    /**
-     * Format example 5555555555, 15555555555
-     * @param  [type]  $value [description]
-     * @return boolean        [description]
-     */
-    protected function isDigits($value)
+    protected function isDigits(string $value) : bool
     {
         $conditions = [];
         $conditions[] = strlen($value) >= 10;
@@ -162,7 +154,7 @@ class Phone extends Rule
     public function message(): string
     {
         $key = 'core::validation.'.$this->getMessageKey();
-        $format ='';
+
         switch ($this->format) {
             case static::FORMAT_DIGITS:
                 $format ='0123956789';
@@ -182,7 +174,7 @@ class Phone extends Rule
         }
 
 
-        return __(
+        return (string)__(
             $key,
             [
                 'attribute' => $this->getAttribute(),

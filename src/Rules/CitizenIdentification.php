@@ -1,14 +1,18 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
-
-use Modules\Core\Rules\Support\Iso3166Alpha2;
-use Modules\Core\Rules\Support\Iso3166Alpha3;
+use Yormy\LaravelValidation\Rules\Support\Iso3166Alpha2;
+use Yormy\LaravelValidation\Rules\Support\Iso3166Alpha3;
 
 class CitizenIdentification extends Rule
 {
+
+
+    private function example() : string
+    {
+        return "xxxxxxxxxxxx";
+    }
 
     /**
      * Determine if the validation rule passes.
@@ -21,7 +25,7 @@ class CitizenIdentification extends Rule
     {
         $this->setAttribute($attribute);
 
-        $array = ($this->parameters[0] ?? 2) === 2 ? Iso3166Alpha2::$codes : Iso3166Alpha3::$codes;
+        ($this->parameters[0] ?? 2) === 2 ? Iso3166Alpha2::$codes : Iso3166Alpha3::$codes;
 
         switch (mb_strtoupper($this->parameters[0] ?? 'USA')) {
             case 'US':
@@ -99,17 +103,17 @@ class CitizenIdentification extends Rule
 
         for ($t = 9; $t < 11; $t+=1) {
             for ($d = 0, $c = 0; $c < $t; $c++) {
-                $d += $value[$c] * (($t + 1) - $c);
+                $d += (int)$value[$c] * (($t + 1) - $c);
             }
 
             $d = ((10 * $d) % 11) % 10;
 
-            if ($value[$c] != $d) {
+            if ((int)$value[$c] != $d) {
                 return false;
             }
         }
 
-        return true;
+        return false;
     }
 
     /**
@@ -119,7 +123,7 @@ class CitizenIdentification extends Rule
     {
         $key = 'core::validation.'.$this->getMessageKey();
 
-        $message = __(
+        $message = (string)_(
             $key,
             [
                 'attribute' => $this->getAttribute(),

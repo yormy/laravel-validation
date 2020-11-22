@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 /*
 Determine if all of the values in the input array exist as attributes for the given model class.
@@ -32,8 +32,6 @@ public function rules()
 */
 
 namespace Yormy\LaravelValidation\Rules;
-
-use Modules\Core\Rules\Rule;
 
 /**
  * Determine if all of the values in the input array exist as attributes for the given model class.
@@ -80,7 +78,7 @@ class ModelsExist extends Rule
 
         $classBasename = class_basename($this->modelClassName);
 
-        return __('validationRules::messages.model_ids', [
+        return (string)__('validationRules::messages.model_ids', [
             'attribute' => $this->attribute,
             'model' => $classBasename,
             'modelAttribute' => $this->modelAttribute,

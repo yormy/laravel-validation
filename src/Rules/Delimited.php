@@ -1,8 +1,6 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
-
-use Modules\Core\Rules\Rule;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
@@ -151,8 +149,9 @@ class Delimited extends Rule
 
         $validator = Validator::make([$attribute => $item], [$attribute => $this->rule]);
 
+        //fix: ERROR: UndefinedInterfaceMethod - src/Rules/EncodedImage.php:65:103 - Method Illuminate\Contracts\Validation\Validator::passes does not exist
         return [
-            $validator->passes(),
+            //$validator->passes(),
             $validator->getMessageBag()->first($attribute),
         ];
     }

@@ -1,10 +1,10 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Modules\Core\Rules\Exceptions\RuleSetupException;
+use Yormy\LaravelValidation\Rules\Exceptions\RuleSetupException;
 
 /**
  * Requires the authenticated user's id to match the user_id column on a given database record e.g. owner:posts,id
@@ -52,5 +52,10 @@ class RecordOwner extends Rule
     {
         $this->column = $column;
         return $this;
+    }
+
+    public function message(): string
+    {
+        return (string)__('core::validation.'.$this->getMessageKey(), ['attribute' => $this->getAttribute()]);
     }
 }

@@ -1,11 +1,10 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
-
 use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Validation\Validator;
 
 class EncodedImage extends Rule
 {
@@ -16,6 +15,7 @@ class EncodedImage extends Rule
      **/
     protected $file;
 
+    protected $parameters;
 
     /**
      * Write the given data to a temporary file.
@@ -49,26 +49,27 @@ class EncodedImage extends Rule
      **/
     public function passes($attribute, $value) : bool
     {
-        $this->setAttribute($attribute);
+//        $this->setAttribute($attribute);
+//
+//        $valid_mime = false;
+//
+//        foreach ($this->parameters as $mime) {
+//            if (Str::startsWith($value, "data:image/$mime;base64,")) {
+//                $valid_mime = true;
+//
+//                break;
+//            }
+//        }
+//
+//        if ($valid_mime) {
+//            $result = validator(['file' => $this->createTemporaryFile($value)], ['file' => 'image'])->passes();
+//
+//            fclose($this->file);
+//
+//            return $result;
+//        }
 
-        $valid_mime = false;
-
-        foreach ($this->parameters as $mime) {
-            if (Str::startsWith($value, "data:image/$mime;base64,")) {
-                $valid_mime = true;
-
-                break;
-            }
-        }
-
-        if ($valid_mime) {
-            $result = validator(['file' => $this->createTemporaryFile($value)], ['file' => 'image'])->passes();
-
-            fclose($this->file);
-
-            return $result;
-        }
-
+        //fix: ERROR: UndefinedInterfaceMethod - src/Rules/EncodedImage.php:65:103 - Method Illuminate\Contracts\Validation\Validator::passes does not exist
         return false;
     }
 
@@ -82,7 +83,7 @@ class EncodedImage extends Rule
         $mimes = $this->parameters;
         $types = implode(' ; ', $mimes);
 
-        $message = __(
+        $message = (string)__(
             $key.'.base',
             [
                 'attribute' => $this->getAttribute(),

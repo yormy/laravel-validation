@@ -2,8 +2,6 @@
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
-
 class HashSHA512 extends Rule
 {
 

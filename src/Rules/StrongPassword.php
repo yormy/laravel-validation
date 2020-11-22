@@ -1,8 +1,6 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
-
-use Modules\Core\Rules\Rule;
 
 use function __;
 use function mb_strlen;
@@ -164,7 +162,7 @@ class StrongPassword extends Rule
 
         $message = [];
 
-        $message[] = __(
+        $message[] = (string)__(
             $key.'.base',
             [
                 'attribute' => $this->getAttribute(),
@@ -172,7 +170,7 @@ class StrongPassword extends Rule
         );
 
         if ($this->minCharacters > 0) {
-            $message[] = __(
+            $message[] = (string)__(
                 $key.'.min',
                 [
                     'length' => $this->minCharacters,
@@ -181,19 +179,19 @@ class StrongPassword extends Rule
         }
 
         if ($this->mustIncludeUppercaseCharacters > 0) {
-            $message[] = __($key.'.uppercase');
+            $message[] = (string)__($key.'.uppercase');
         }
 
         if ($this->mustIncludeLowercaseCharacters > 0) {
-            $message[] = __($key.'.lowercase');
+            $message[] = (string)__($key.'.lowercase');
         }
 
         if ($this->mustIncludeNumbers > 0) {
-            $message[] = __($key.'.numbers');
+            $message[] = (string)__($key.'.numbers');
         }
 
         if ($this->mustIncludeSpecialCharacters > 0) {
-            $message[] = __(
+            $message[] = (string)__(
                 $key.'.special',
                 [
                     'characters' => $this->specialCharacters,

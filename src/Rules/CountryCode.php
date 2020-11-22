@@ -2,10 +2,8 @@
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
-
-use Modules\Core\Rules\Support\Iso3166Alpha2;
-use Modules\Core\Rules\Support\Iso3166Alpha3;
+use Yormy\LaravelValidation\Rules\Support\Iso3166Alpha2;
+use Yormy\LaravelValidation\Rules\Support\Iso3166Alpha3;
 
 /**
  *
@@ -60,7 +58,7 @@ class CountryCode extends Rule
             $iso = 'Iso3166 Alpha 3';
         }
 
-        $message = __(
+        $message = (string)__(
             $key,
             [
                 'attribute' => $this->getAttribute(),

@@ -1,10 +1,9 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
-use Modules\Core\Rules\Exceptions\RuleSetupException;
-use Modules\Core\Rules\StringContains;
+use Yormy\LaravelValidation\Rules\Exceptions\RuleSetupException;
+use Yormy\LaravelValidation\Rules\StringContains;
 
 class MaxWords extends Rule
 {
@@ -39,7 +38,7 @@ class MaxWords extends Rule
     {
         $key = 'core::validation.'.$this->getMessageKey();
 
-        $message = __(
+        $message = (string)__(
             $key,
             [
                 'attribute' => $this->getAttribute(),

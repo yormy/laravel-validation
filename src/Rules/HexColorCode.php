@@ -1,8 +1,7 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
 use Illuminate\Support\Str;
 use function __;
 use function preg_match;
@@ -89,7 +88,7 @@ class HexColorCode extends Rule
     {
         $key = 'core::validation.'.$this->getMessageKey();
 
-        $message = __(
+        $message = (string)__(
             $key.'.base',
             [
                 'attribute' => $this->getAttribute(),

@@ -2,8 +2,6 @@
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
-
 /**
  * - (new Decimal())->integer(3)->fractal(2);
  * Class Decimal
@@ -75,7 +73,7 @@ class Decimal extends Rule
     {
         $key = 'core::validation.'.$this->getMessageKey();
 
-        $message = __(
+        $message = (string)__(
             $key,
             [
                 'attribute' => $this->getAttribute(),

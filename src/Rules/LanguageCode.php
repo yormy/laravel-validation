@@ -1,11 +1,9 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
-
-use Modules\Core\Rules\Support\Iso6391Alpha2;
-use Modules\Core\Rules\Support\Iso6391Alpha3;
+use Yormy\LaravelValidation\Rules\Support\Iso6391Alpha2;
+use Yormy\LaravelValidation\Rules\Support\Iso6391Alpha3;
 
 class LanguageCode extends Rule
 {
@@ -57,7 +55,7 @@ class LanguageCode extends Rule
             $iso = 'Iso6391 Alpha 3';
         }
 
-        $message = __(
+        $message = (string)__(
             $key,
             [
                 'attribute' => $this->getAttribute(),

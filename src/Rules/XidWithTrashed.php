@@ -1,12 +1,9 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Akaunting\Firewall\Models\Tarpit;
-use App\Libraries\GlobalHelper;
 use Illuminate\Support\Facades\DB;
-use Modules\Core\Observers\Events\TarpitTriggerEvent;
-use Modules\Core\Rules\Rule;
+use Yormy\LaravelValidation\Observers\Events\TarpitTriggerEvent;
 
 class XidWithTrashed extends Rule
 {
@@ -65,11 +62,11 @@ class XidWithTrashed extends Rule
     public function message(): string
     {
         if (!$this->showField) {
-            return __('core::validation.xid_hidden_details', ['prefix' => $this->errorPrefix]);
+            return (string)__('core::validation.xid_hidden_details', ['prefix' => $this->errorPrefix]);
         }
 
         $key = 'core::validation.'.$this->getMessageKey();
-        return __(
+        return (string)__(
             $key,
             [
                 'attribute' => $this->getAttribute(),

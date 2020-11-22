@@ -2,8 +2,6 @@
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
-
 class Locale extends Rule
 {
 
@@ -41,7 +39,7 @@ class Locale extends Rule
     {
         $key = 'core::validation.'.$this->getMessageKey();
 
-        $message = __(
+        $message = (string)__(
             $key,
             [
                 'attribute' => $this->getAttribute(),

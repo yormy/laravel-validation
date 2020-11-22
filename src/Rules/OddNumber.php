@@ -1,8 +1,6 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
-
-use Modules\Core\Rules\Rule;
 
 class OddNumber extends Rule
 {

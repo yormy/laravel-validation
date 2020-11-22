@@ -1,8 +1,7 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,6 +16,9 @@ class FileNotExists extends Rule
      * @var string
      */
     private $filename;
+
+    /** @var bool */
+    protected $includePrefix = true;
 
     /**
      * FileExtension constructor.
@@ -62,11 +64,10 @@ class FileNotExists extends Rule
     {
         $key = 'core::validation.'.$this->getMessageKey();
 
-        $message = __(
+        $message = (string)__(
             $key.'.base',
             [
                 'attribute' => $this->getAttribute(),
-                'length'    => $this->forceSixDigitCode ? 6 : 3,
             ]
         );
 

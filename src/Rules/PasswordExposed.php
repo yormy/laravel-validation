@@ -1,10 +1,8 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
-
-use Modules\Core\Rules\Factories\PasswordExposedCheckerFactory;
+use Yormy\LaravelValidation\Rules\Factories\PasswordExposedCheckerFactory;
 use DivineOmega\PasswordExposed\Enums\PasswordStatus;
 use DivineOmega\PasswordExposed\PasswordExposedChecker;
 

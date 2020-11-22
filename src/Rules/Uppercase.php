@@ -1,8 +1,7 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Rule;
 use function is_string;
 use function mb_strtoupper;
 

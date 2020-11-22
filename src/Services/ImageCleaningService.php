@@ -45,7 +45,7 @@ class ImageCleaningService
 
     public function setResolution(float $x, float $y) : self
     {
-        if (0 === $x || 0=== $y) {
+        if (0.0 === $x || 0.0 === $y) {
             throw new InvalidValueException('Resolution cannot be 0');
         }
 

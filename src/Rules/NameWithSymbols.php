@@ -1,8 +1,6 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
-
-use Modules\Core\Rules\Rule;
 
 /**
  * Allow only Alpha (including umlaut Ü etc and special chars) , dashes whitespace

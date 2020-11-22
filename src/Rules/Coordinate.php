@@ -1,8 +1,6 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
-
-use Modules\Core\Rules\Rule;
 
 use function explode;
 use function preg_match;
@@ -24,7 +22,7 @@ class Coordinate extends Rule
 
         $parts = explode(',', $value);
 
-        if ($parts === [] || ! isset($parts[1])) {
+        if (!count($parts) || !isset($parts[1])) {
             return false;
         }
 

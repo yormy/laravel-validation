@@ -1,9 +1,8 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Modules\Core\Rules\Exceptions\RuleSetupException;
-use Modules\Core\Rules\Rule;
+use Yormy\LaravelValidation\Rules\Exceptions\RuleSetupException;
 
 use Illuminate\Support\Facades\DB;
 

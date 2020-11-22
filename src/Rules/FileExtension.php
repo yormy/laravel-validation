@@ -34,20 +34,18 @@ class FileExtension implements Rule
     }
 
     /**
-     * Determine if the validation rule passes.
-     *
      * @param string $attribute
-     * @param UploadedFile $value
+     * @param mixed $value
      * @return bool
      */
     public function passes($attribute, $value)
     {
         return false;
-        $mimeTypeValidator = Validator::make(['image' => $value], ['image' => 'mimes:' . $this->getMimeString()]);
-
-        $this->mimeTypePasses = !$mimeTypeValidator->fails();
-        $this->extensionPasses = \in_array($value->getClientOriginalExtension(), $this->extensions, true);
-        return $this->mimeTypePasses && $this->extensionPasses;
+//        $mimeTypeValidator = Validator::make(['image' => $value], ['image' => 'mimes:' . $this->getMimeString()]);
+//
+//        $this->mimeTypePasses = !$mimeTypeValidator->fails();
+//        $this->extensionPasses = \in_array($value->getClientOriginalExtension(), $this->extensions, true);
+//        return $this->mimeTypePasses && $this->extensionPasses;
     }
 
     /**
@@ -57,10 +55,11 @@ class FileExtension implements Rule
      */
     public function message()
     {
-        if (!$this->extensionPasses) {
-            return __('Alleen :extensions bestanden zijn toegestaan', ['extensions' => $this->getExtensionMessage()]);
-        }
-        return __('Dit bestand bevat een ongeldige structuur.');
+        return "todo invalid";
+//        if (!$this->extensionPasses) {
+//            return __('Alleen :extensions bestanden zijn toegestaan', ['extensions' => $this->getExtensionMessage()]);
+//        }
+//        return __('Dit bestand bevat een ongeldige structuur.');
     }
 
     /**

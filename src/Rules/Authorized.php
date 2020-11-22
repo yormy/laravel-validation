@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 /*
 Determine if the user is authorized to perform an ability on an instance of the given model.
 The id of the model is the field under validation
@@ -29,8 +29,6 @@ public function rules()
 }
 */
 namespace Yormy\LaravelValidation\Rules;
-
-use Modules\Core\Rules\Rule;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -63,7 +61,11 @@ class Authorized extends Rule
     {
         $this->setAttribute($attribute);
 
-        if (! $user = Auth::user()) {
+        /**
+         * @var Authenticatable user
+         */
+        $user = Auth::user();
+        if (!$user) {
             return false;
         }
 
@@ -83,7 +85,7 @@ class Authorized extends Rule
 
         $key = 'core::validation.'.$this->getMessageKey();
 
-        $message = __(
+        $message = (string)__(
             $key,
             [
                 'attribute' => $this->attribute,
