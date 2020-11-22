@@ -17,6 +17,14 @@ class EncodedImage extends Rule
 
     protected $parameters;
 
+    const WEBP = "webp";
+    const JPEG = "jpeg";
+
+    public function __construct(array $parameters =[])
+    {
+        $this->parameters = $parameters;
+    }
+
     /**
      * Write the given data to a temporary file.
      *
@@ -37,8 +45,6 @@ class EncodedImage extends Rule
         );
     }
 
-
-
     /**
      * Determine if the validation rule passes.
      *
@@ -49,27 +55,29 @@ class EncodedImage extends Rule
      **/
     public function passes($attribute, $value) : bool
     {
-//        $this->setAttribute($attribute);
-//
-//        $valid_mime = false;
-//
-//        foreach ($this->parameters as $mime) {
-//            if (Str::startsWith($value, "data:image/$mime;base64,")) {
-//                $valid_mime = true;
-//
-//                break;
-//            }
-//        }
-//
-//        if ($valid_mime) {
-//            $result = validator(['file' => $this->createTemporaryFile($value)], ['file' => 'image'])->passes();
-//
-//            fclose($this->file);
-//
-//            return $result;
-//        }
+        $value = base64_decode($value);
+        $this->setAttribute($attribute);
 
-        //fix: ERROR: UndefinedInterfaceMethod - src/Rules/EncodedImage.php:65:103 - Method Illuminate\Contracts\Validation\Validator::passes does not exist
+        $valid_mime = false;
+
+        foreach ($this->parameters as $mime) {
+            if (Str::startsWith($value, "data:image/$mime;base64,")) {
+                $valid_mime = true;
+                break;
+            }
+        }
+
+        if ($valid_mime) {
+            /**
+             * @var Illuminate\Contracts\Validation\Validator $validator
+             */
+            $validator = validator(['file' => $this->createTemporaryFile($value)], ['file' => 'image']);
+            $result = $validator->passes();
+
+            fclose($this->file);
+
+            return $result;
+        }
         return false;
     }
 

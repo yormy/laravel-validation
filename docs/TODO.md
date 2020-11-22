@@ -1,5 +1,6 @@
 # TODO
+Base64Encoded image RULE, not only the cleaning service
+BaseRequest extension
 
-Fix psalm bugs in:
-Encoded Image
-Delimited
+Include tarpit ?
+
