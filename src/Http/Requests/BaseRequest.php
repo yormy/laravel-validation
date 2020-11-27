@@ -1,6 +1,6 @@
 <?php
 
-namespace  Mexion\MultilingualAdmin\Http\Requests;
+namespace Yormy\LaravelValidation\Http\Requests;
 
 use Yormy\LaravelValidation\Http\Requests\FormRouteRequest;
 
