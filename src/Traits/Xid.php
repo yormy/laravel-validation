@@ -7,7 +7,10 @@ trait Xid
     public static function bootXid()
     {
         static::creating(function ($model) {
-            $model->xid = Xid();
+
+            if (!$model->xid) {
+                $model->xid = Xid();
+            }
         });
     }
 }
