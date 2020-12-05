@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Facade;
  */
 class LaravelValidationFacade extends Facade
 {
-//    protected static function getFacadeAccessor()
-//    {
-//        return 'laravel-validation';
-//    }
+    protected static function getFacadeAccessor()
+    {
+        return LaravelValidation::class;
+    }
 }
