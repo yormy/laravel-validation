@@ -22,11 +22,16 @@ abstract class FormRouteRequest extends FormRequest
         $data = parent::all();
 
         foreach ($this->routeParamsToValidate as $validationDataKey => $routeParameter) {
-            $data[$validationDataKey] = $this->route($routeParameter);
-        }
+
+            if ($this->route($routeParameter)) {
+                $data[$validationDataKey] = $this->route($routeParameter);
+            }}
 
         foreach ($this->queryParamsToValidate as $validationDataKey => $queryParameter) {
-            $data[$validationDataKey] = $this->query($queryParameter);
+
+            if ($this->query($queryParameter)) {
+                $data[$validationDataKey] = $this->query($queryParameter);
+            }
         }
 
         return $data;
