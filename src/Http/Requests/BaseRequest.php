@@ -54,16 +54,4 @@ class BaseRequest extends FormRouteRequest
         return $rules;
     }
 
-    /**
-     * Custom message for validation
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'required' => __('validation.required'),
-            'min' => __('validation.min'),
-        ];
-    }
 }

@@ -23,9 +23,9 @@
     },
     "require-dev": {
         "jaschilz/php-coverage-badger": "^2.0",
-        "phpunit/phpunit": "^9.3",
-        "psalm/plugin-laravel": "^1.2",
-        "vimeo/psalm": "^4.1.1"
+        "phpunit/phpunit": "^9.5",
+        "psalm/plugin-laravel": "^1.4",
+        "vimeo/psalm": "^4.3.1"
     },
     "autoload": {
         "psr-4": {

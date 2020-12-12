@@ -1,9 +1,12 @@
-# Tracking of referrals in laravel
+# Laravel Validation
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/yormy/laravel-validation.svg?style=flat-square)](https://packagist.org/packages/yormy/laravel-validation)
 [![Total Downloads](https://img.shields.io/packagist/dt/yormy/laravel-validation.svg?style=flat-square)](https://packagist.org/packages/yormy/laravel-validation)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/facade/ignition/run-php-tests?label=Tests)
 ![Alt text](./coverage.svg)
+
+Several cool basic laravel validation logic
+
 ## Installation
 
 
@@ -12,6 +15,7 @@ You can install the package via composer:
 ```bash
 composer require yormy/laravel-validation
 ```
+
 # Adding Xid Id's
 Add to your database migrations
 ```
