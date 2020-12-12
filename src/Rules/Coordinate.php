@@ -22,7 +22,7 @@ class Coordinate extends Rule
 
         $parts = explode(',', $value);
 
-        if (!count($parts) || !isset($parts[1])) {
+        if (! count($parts) || ! isset($parts[1])) {
             return false;
         }
 

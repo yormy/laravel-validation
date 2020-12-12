@@ -7,7 +7,6 @@ use Yormy\LaravelValidation\Rules\Support\Iso6391Alpha3;
 
 class LanguageCode extends Rule
 {
-
     private $iso = 2;
 
     /**
@@ -59,7 +58,7 @@ class LanguageCode extends Rule
             $key,
             [
                 'attribute' => $this->getAttribute(),
-                'iso' => $iso
+                'iso' => $iso,
             ]
         );
 

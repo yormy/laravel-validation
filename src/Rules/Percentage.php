@@ -15,11 +15,12 @@ class Percentage extends Rule
     {
         $this->setAttribute($attribute);
 
-        if (!is_numeric($value)) {
+        if (! is_numeric($value)) {
             return false;
         }
 
         $intValue = (int)$value;
+
         return $intValue >= 0 && $intValue <= 100;
     }
 }

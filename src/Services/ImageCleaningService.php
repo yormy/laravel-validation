@@ -36,7 +36,7 @@ class ImageCleaningService
             $this->base64Image = $this->getBareImage($base64Image, self::JPEG_BASE64);
         }
 
-        if (!$this->base64Image) {
+        if (! $this->base64Image) {
             throw new InvalidImageException('Invalid Base64');
         }
 
@@ -68,7 +68,7 @@ class ImageCleaningService
 
     public function resize()
     {
-        if (!$this->image) {
+        if (! $this->image) {
             throw new InvalidImageException('Invalid Image');
         }
 

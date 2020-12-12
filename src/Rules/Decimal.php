@@ -9,10 +9,9 @@ namespace Yormy\LaravelValidation\Rules;
  */
 class Decimal extends Rule
 {
+    private $integer = 5;
 
-    private $integer=5;
-
-    private $fractal=2;
+    private $fractal = 2;
 
     /**
      * Generate an example value that satisifies the validation rule.
@@ -23,8 +22,6 @@ class Decimal extends Rule
         return mt_rand(1, (int) str_repeat('9', $this->integer)) . '.' .
                mt_rand(1, (int) str_repeat('9', $this->fractal));
     }
-
-
 
     /**
      * Determine if the validation rule passes.
@@ -77,7 +74,7 @@ class Decimal extends Rule
             $key,
             [
                 'attribute' => $this->getAttribute(),
-                'example' => $this->example()
+                'example' => $this->example(),
             ]
         );
 

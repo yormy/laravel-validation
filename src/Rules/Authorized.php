@@ -65,7 +65,7 @@ class Authorized extends Rule
          * @var Authenticatable user
          */
         $user = Auth::user();
-        if (!$user) {
+        if (! $user) {
             return false;
         }
 

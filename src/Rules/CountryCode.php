@@ -13,6 +13,7 @@ use Yormy\LaravelValidation\Rules\Support\Iso3166Alpha3;
 class CountryCode extends Rule
 {
     private $iso = 2;
+
     /**
      * Determine if the validation rule passes.
      *
@@ -62,7 +63,7 @@ class CountryCode extends Rule
             $key,
             [
                 'attribute' => $this->getAttribute(),
-                'iso' => $iso
+                'iso' => $iso,
             ]
         );
 

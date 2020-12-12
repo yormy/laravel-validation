@@ -7,9 +7,8 @@ use Yormy\LaravelValidation\Http\Requests\FormRouteRequest;
 class BaseRequest extends FormRouteRequest
 {
     protected $routeParamsToValidate = [
-        'i18n' =>'i18n',
+        'i18n' => 'i18n',
     ];
-
 
     /**
      * Get the validation rules that apply to the request.
@@ -20,7 +19,7 @@ class BaseRequest extends FormRouteRequest
     {
         $rules['i18n'] = [
             'required',
-            'in:'.implode(',', array_keys(config('multilingual-admin.locales')))
+            'in:'.implode(',', array_keys(config('multilingual-admin.locales'))),
             ];
 
         $rules['publicId'] = 'string|min:1';
@@ -44,13 +43,14 @@ class BaseRequest extends FormRouteRequest
     private function createValidation()
     {
         $rules = [];
+
         return $rules;
     }
-
 
     private function updateValidation()
     {
         $rules = [];
+
         return $rules;
     }
 

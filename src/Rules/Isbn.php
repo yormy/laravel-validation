@@ -4,7 +4,6 @@ namespace Yormy\LaravelValidation\Rules;
 
 class Isbn extends Rule
 {
-
     /**
      * Determine if the validation rule passes.
      *

@@ -12,9 +12,9 @@ use Yormy\LaravelValidation\Rules\Exceptions\RuleSetupException;
 class Phone extends Rule
 {
     const FORMAT_DIGITS = 1;
-    const FORMAT_E123= 2;
-    const FORMAT_E164= 3;
-    const FORMAT_NANP= 4;
+    const FORMAT_E123 = 2;
+    const FORMAT_E164 = 3;
+    const FORMAT_NANP = 4;
 
     private $format = self::FORMAT_E164;
 
@@ -49,44 +49,54 @@ class Phone extends Rule
         switch ($this->format) {
             case static::FORMAT_DIGITS:
                 $example = "111111199999";
+
                 break;
             case static::FORMAT_E123:
                 $example = "+22 555 666 7777";
+
                 break;
             case static::FORMAT_E164:
                 $example = "+15556667777";
+
                 break;
             case static::FORMAT_NANP:
                 $example = "+1 (555) 666-7";
+
                 break;
             default:
                 $example = "+15556667777";
+
                 break;
         }
+
         return $example;
     }
 
     public function digits(): self
     {
         $this->format = static::FORMAT_DIGITS;
+
         return $this;
     }
 
     public function e123(): self
     {
         $this->format = static::FORMAT_E123;
+
         return $this;
     }
 
     public function e164(): self
     {
         $this->format = static::FORMAT_E164;
+
         return $this;
     }
 
     public function nanp(): self
     {
         $this->format = static::FORMAT_NANP;
+
         return $this;
     }
 
@@ -94,7 +104,7 @@ class Phone extends Rule
      * Checks through all validation methods to verify it is in a
      * phone number format of some type
      * @param  string  $value The phone number to check
-     * @return boolean        is it correct format?
+     * @return bool        is it correct format?
      */
     protected function isPhone($value)
     {
@@ -107,6 +117,7 @@ class Phone extends Rule
         $conditions[] = strlen($value) >= 10;
         $conditions[] = strlen($value) <= 16;
         $conditions[] = preg_match("/[^\d]/i", $value) === 0;
+
         return (bool) array_product($conditions);
     }
 
@@ -123,7 +134,7 @@ class Phone extends Rule
     /**
      * Format example +15555555555
      * @param  string  $value The phone number to check
-     * @return boolean        is it correct format?
+     * @return bool        is it correct format?
      */
     protected function isE164($value)
     {
@@ -132,6 +143,7 @@ class Phone extends Rule
         $conditions[] = strlen($value) >= 9;
         $conditions[] = strlen($value) <= 16;
         $conditions[] = preg_match("/[^\d+]/i", $value) === 0;
+
         return (bool) array_product($conditions);
     }
 
@@ -139,12 +151,13 @@ class Phone extends Rule
      * Format examples: (555) 555-5555, 1 (555) 555-5555, 1-555-555-5555, 555-555-5555, 1 555 555-5555
      * https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers#United_States.2C_Canada.2C_and_other_NANP_countries
      * @param  string  $value The phone number to check
-     * @return boolean        is it correct format?
+     * @return bool        is it correct format?
      */
     protected function isNANP($value)
     {
         $conditions = [];
         $conditions[] = preg_match("/^(?:\+1|1)?\s?-?\(?\d{3}\)?(\s|-)?\d{3}-\d{4}$/i", $value) > 0;
+
         return (bool) array_product($conditions);
     }
 
@@ -157,19 +170,24 @@ class Phone extends Rule
 
         switch ($this->format) {
             case static::FORMAT_DIGITS:
-                $format ='0123956789';
+                $format = '0123956789';
+
                 break;
             case static::FORMAT_E123:
-                $format ='E123';
+                $format = 'E123';
+
                 break;
             case static::FORMAT_E164:
-                $format ='E164';
+                $format = 'E164';
+
                 break;
             case static::FORMAT_NANP:
-                $format ='NANP';
+                $format = 'NANP';
+
                 break;
             default:
-                $format ='E164';
+                $format = 'E164';
+
                 break;
         }
 
@@ -179,7 +197,7 @@ class Phone extends Rule
             [
                 'attribute' => $this->getAttribute(),
                 'format' => $format,
-                'example' => $this->example()
+                'example' => $this->example(),
             ]
         );
     }

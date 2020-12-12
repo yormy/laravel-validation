@@ -2,8 +2,8 @@
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Yormy\LaravelValidation\Rules\Exceptions\RuleSetupException;
 
 /**
@@ -45,12 +45,14 @@ class RecordOwner extends Rule
     public function table(string $table): self
     {
         $this->table = $table;
+
         return $this;
     }
 
     public function column(string $column): self
     {
         $this->column = $column;
+
         return $this;
     }
 

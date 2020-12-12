@@ -2,10 +2,8 @@
 
 namespace Yormy\LaravelValidation\Rules;
 
-use Exception;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\UploadedFile;
 
 class FileExtension implements Rule
 {

@@ -12,6 +12,7 @@ class XidRequest extends FormRequest
     public function rules(): array
     {
         $rules['xid'] = ['required'];
+
         return $rules;
     }
 }

@@ -4,18 +4,16 @@ namespace Yormy\LaravelValidation\Rules;
 
 class Locale extends Rule
 {
-
     /**
      * Generate an example value that satisifies the validation rule.
      *
      **/
     public function example() : string
     {
-        $allowedLocales =  array_keys(config('laravellocalization.supportedLocales'));
+        $allowedLocales = array_keys(config('laravellocalization.supportedLocales'));
+
         return implode(',', $allowedLocales);
     }
-
-
 
     /**
      * Determine if the validation rule passes.
@@ -43,7 +41,7 @@ class Locale extends Rule
             $key,
             [
                 'attribute' => $this->getAttribute(),
-                'example' => $this->example()
+                'example' => $this->example(),
             ]
         );
 
