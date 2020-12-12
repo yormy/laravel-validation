@@ -2,8 +2,6 @@
 
 namespace Yormy\LaravelValidation\Http\Requests;
 
-use Yormy\LaravelValidation\Http\Requests\FormRouteRequest;
-
 class BaseRequest extends FormRouteRequest
 {
     protected $routeParamsToValidate = [
@@ -53,5 +51,4 @@ class BaseRequest extends FormRouteRequest
 
         return $rules;
     }
-
 }
