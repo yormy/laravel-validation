@@ -4,7 +4,7 @@ namespace Yormy\LaravelValidation\Rules;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Yormy\LaravelValidation\Observers\Events\TarpitTriggerEvent;
+use Yormy\LaravelValidation\Exceptions\XidNotFoundException;
 
 class Xid extends Rule
 {
@@ -60,8 +60,7 @@ class Xid extends Rule
         }
 
         if (! $passed) {
-            // When the xid is invalid this is probably a hacking attempt
-            event(new TarpitTriggerEvent());
+            throw new XidNotFoundException();
         }
 
         return $passed;

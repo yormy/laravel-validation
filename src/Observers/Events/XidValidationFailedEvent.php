@@ -5,7 +5,7 @@ namespace Yormy\LaravelValidation\Observers\Events;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class TarpitTriggerEvent
+class XidValidationFailedEvent
 {
     use Dispatchable;
     use SerializesModels;
