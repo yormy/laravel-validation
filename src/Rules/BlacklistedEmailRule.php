@@ -4,8 +4,7 @@ namespace Yormy\LaravelValidation\Rules;
 
 class BlacklistedEmailRule extends Rule
 {
-    /** @var string */
-    protected $className;
+    protected string $className;
 
     public function __construct(string $className)
     {
