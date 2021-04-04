@@ -12,10 +12,10 @@ class Xid extends Rule
     private $table;
     private $errorPrefix;
 
-    public function __construct(string $table, bool $showField = false)
+    public function __construct($model, bool $showField = false)
     {
         $this->showField = $showField;
-        $this->table = $table;
+        $this->table = (new $model)->getTable();
     }
 
     /**
