@@ -10,7 +10,7 @@ class Locale extends Rule
      **/
     public function example() : string
     {
-        $allowedLocales = array_keys(config('laravellocalization.supportedLocales'));
+        $allowedLocales = array_keys(config('localization.supportedLocales'));
 
         return implode(',', $allowedLocales);
     }
@@ -22,7 +22,7 @@ class Locale extends Rule
     {
         $this->setAttribute($attribute);
 
-        $allowedLocales = array_keys(config('laravellocalization.supportedLocales'));
+        $allowedLocales = array_keys(config('localization.supportedLocales'));
         if (in_array($value, $allowedLocales)) {
             return true;
         }

@@ -2,13 +2,42 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Config Values
-    | Specify the config values and explain what the options are and
-    | how to use them
-    |--------------------------------------------------------------------------
-    |
-    */
+    // leave the extensions empty for all allowed extensions
+    "upload" => [
+        "mime_allowed" => [
+            'image/jpeg' => [
+                'jpg',
+                'jpeg'
+            ],
+            'image/gif' => [],
+            'image/png' => [],
+            'image/bmp' => [],
+            'application/pdf' => [],
+        ],
+
+        "max_file_size_kb" => 100000,
+
+        "inconsistent_extension" => true,
+
+        "inconsistent_mime" => true,
+
+        "inconsistent_mime_extension" => true,
+
+        'content_blacklist' => [
+            '<?php',
+            'phar'
+        ],
+
+        'exceptions' => [
+            'NullByteFoundException',
+            'SizeNotAllowedException',
+            'MimeTypeNotAllowedException',
+            'InconsistentMimeException',
+            'ExtensionInconsistentException',
+            'ExtensionInvalidException',
+            'BlacklistedContentException'
+        ],
+
+    ]
 
 ];
