@@ -15,7 +15,7 @@ return [
             'application/pdf' => [],
         ],
 
-        "max_file_size_kb" => 100000,
+        "max_file_size_kb" => 600000000,
 
         "inconsistent_extension" => true,
 
