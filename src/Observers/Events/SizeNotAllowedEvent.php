@@ -12,6 +12,10 @@ class SizeNotAllowedEvent
 
     protected string $filename;
 
+    private string $code = "SIZE_NOT_ALLOWED";
+
+    private string $severity = "low";
+
     public function __construct(string $filename)
     {
         $this->filename = $filename;
@@ -20,6 +24,16 @@ class SizeNotAllowedEvent
     public function getFilename()
     {
         return $this->filename;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    public function getSeverity()
+    {
+        return $this->severity;
     }
 
 }

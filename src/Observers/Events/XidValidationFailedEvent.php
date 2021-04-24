@@ -12,6 +12,10 @@ class XidValidationFailedEvent
 
     protected string $ipAddress;
 
+    private string $code = "XID_NOT_FOUND";
+
+    private string $severity = "medium";
+
     public function __construct(string $ipAddress = '')
     {
         $this->ipAddress = $ipAddress;
@@ -40,5 +44,16 @@ class XidValidationFailedEvent
         }
         return request()->ip(); // it will return server ip when no client ip found
     }
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    public function getSeverity()
+    {
+        return $this->severity;
+    }
+
 
 }

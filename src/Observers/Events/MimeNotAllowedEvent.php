@@ -14,6 +14,10 @@ class MimeNotAllowedEvent
 
     protected string $mimeType;
 
+    private string $code = "MIME_NOT_ALLOWED";
+
+    private string $severity = "low";
+
     public function __construct(string $filename, string $mimeType)
     {
         $this->filename = $filename;
@@ -28,5 +32,15 @@ class MimeNotAllowedEvent
     public function getMimeType()
     {
         return $this->mimeType;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    public function getSeverity()
+    {
+        return $this->severity;
     }
 }

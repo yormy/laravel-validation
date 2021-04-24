@@ -13,6 +13,10 @@ class NullByteFoundEvent
 
     protected string $filename;
 
+    private string $code = "NULL_BYTE";
+
+    private string $severity = "severe";
+
     public function __construct(string $filename)
     {
         $this->filename = $filename;
@@ -21,5 +25,15 @@ class NullByteFoundEvent
     public function getFilename()
     {
         return $this->filename;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    public function getSeverity()
+    {
+        return $this->severity;
     }
 }

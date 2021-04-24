@@ -14,6 +14,10 @@ class BlacklistedContentEvent
 
     protected string $maliciousContent;
 
+    private string $code = "BLACKLISTED_CONTENT";
+
+    private string $severity = "severe";
+
     public function __construct(string $filename, string $maliciousContent)
     {
         $this->filename = $filename;
@@ -28,5 +32,15 @@ class BlacklistedContentEvent
     public function getMaliciousContent()
     {
         return $this->maliciousContent;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    public function getSeverity()
+    {
+        return $this->severity;
     }
 }

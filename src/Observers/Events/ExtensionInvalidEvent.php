@@ -12,6 +12,10 @@ class ExtensionInvalidEvent
 
     protected string $filename;
 
+    private string $code = "EXTENSION_INCONSISTENT";
+
+    private string $severity = "low";
+
     public function __construct(string $filename)
     {
         $this->filename = $filename;
@@ -20,5 +24,15 @@ class ExtensionInvalidEvent
     public function getFilename()
     {
         return $this->filename;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    public function getSeverity()
+    {
+        return $this->severity;
     }
 }

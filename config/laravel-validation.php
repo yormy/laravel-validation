@@ -25,7 +25,16 @@ return [
 
         'content_blacklist' => [
             '<?php',
-            'phar'
+            'bzip2://',
+            'expect://',
+            'glob://',
+            'phar://',
+            'php://',
+            'ogg://',
+            'rar://',
+            'ssh2://',
+            'zip://',
+            'zlib://',
         ],
 
         'exceptions' => [
