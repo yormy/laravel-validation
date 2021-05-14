@@ -38,6 +38,8 @@ class UploadValidation
             $this->checkExtensionInconsistent($uploadedFile);
             $this->checkExtensionInvalid($uploadedFile);
             $this->checkContentBlacklist($uploadedFile);
+            $this->checkInjection($uploadedFile);
+
         }
 
         return $next($request);
@@ -47,9 +49,24 @@ class UploadValidation
     {
         $clientOriginalName = $file->getClientOriginalName();
 
-        $clientOriginalNameWithoutNull = str_replace(chr(0), '', $clientOriginalName);
+        $clientOriginalNameWithoutNull = str_replace(chr(41), '*', $clientOriginalName);
+        echo bin2hex($clientOriginalNameWithoutNull);
 
         if ($clientOriginalName !== $clientOriginalNameWithoutNull) {
+            NullByteFoundEvent::dispatch($clientOriginalName);
+
+            if ($this->canThrowException('NullByteFoundException')) {
+                throw new NullByteFoundException($clientOriginalName);
+            }
+        }
+    }
+
+
+    // TODO: Check other injecttions, handle properly with single exceptions and events
+    private function checkInjection(UploadedFile $file)
+    {
+        $clientOriginalName = $file->getClientOriginalName();
+        if (strpos($clientOriginalName, '{{') != false) {
             NullByteFoundEvent::dispatch($clientOriginalName);
 
             if ($this->canThrowException('NullByteFoundException')) {
@@ -96,12 +113,14 @@ class UploadValidation
     private function checkMimeInconsistent(UploadedFile $file)
     {
         if (config('laravel-validation.upload.inconsistent_mime')) {
-            $uploadedMimeType = $file->getMimeType();
-            if ($file->getClientMimeType() !== $uploadedMimeType) {
+            $uploadedMimeType[] = $file->getMimeType();
+            $uploadedMimeType = $this->handleServerChangedMimes($uploadedMimeType);
+
+            if (!in_array($file->getClientMimeType(), $uploadedMimeType)) {
 
                 $clientOriginalName = $file->getClientOriginalName();
 
-                MimeInconsistentEvent::dispatch($clientOriginalName, $uploadedMimeType);
+                MimeInconsistentEvent::dispatch($clientOriginalName, $file->getMimeType());
 
                 if ($this->canThrowException('InconsistentMimeException')) {
                     throw new MimeInconsistentException($clientOriginalName);
@@ -110,11 +129,26 @@ class UploadValidation
         }
     }
 
+    /**
+     * Depending on the server uploaded MP4 will get the mimetype of application/octet-stream
+     * @param array $uploadedMimeType
+     * @return array
+     */
+    private function handleServerChangedMimes(array $uploadedMimeType)
+    {
+        if (in_array('application/octet-stream', $uploadedMimeType)) {
+            $uploadedMimeType[] = 'video/mp4';
+        }
+        return $uploadedMimeType;
+
+    }
+
+
     private function checkExtensionInconsistent(UploadedFile $file)
     {
         if (config('laravel-validation.upload.inconsistent_extension')) {
-            if ($file->guessExtension() !== $file->guessClientExtension()) {
-
+            $allowedExtensions = $this->getAllowedExtensions($file);
+            if (!in_array($file->guessClientExtension(), $allowedExtensions)) {
                 $clientOriginalName = $file->getClientOriginalName();
 
                 ExtensionInconsistentEvent::dispatch($clientOriginalName);
@@ -124,6 +158,17 @@ class UploadValidation
                 }
             }
         }
+    }
+
+    private function getAllowedExtensions(UploadedFile $file)
+    {
+        $allowedExtensions[] = $file->guessExtension();
+
+        if ($file->guessExtension() == 'bin') {
+            $allowedExtensions[] = 'mp4';
+        }
+
+        return $allowedExtensions;
     }
 
     private function checkExtensionInvalid(UploadedFile $file)

@@ -13,6 +13,21 @@ return [
             'image/png' => [],
             'image/bmp' => [],
             'application/pdf' => [],
+            'application/octet-stream' => [
+                'mp4'
+            ],
+            'video/mp4' => [
+                'mp4'
+            ],
+            'application/vnd.oasis.opendocument.text' => [
+                'odt'
+            ],
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => [
+                'docx'
+            ],
+            'application/msword' => [
+                'doc'
+            ],
         ],
 
         "max_file_size_kb" => 600000000,
