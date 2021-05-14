@@ -50,7 +50,7 @@ class UploadValidation
         $clientOriginalName = $file->getClientOriginalName();
 
         $clientOriginalNameWithoutNull = str_replace(chr(41), '*', $clientOriginalName);
-        echo bin2hex($clientOriginalNameWithoutNull);
+        //echo bin2hex($clientOriginalNameWithoutNull);
 
         if ($clientOriginalName !== $clientOriginalNameWithoutNull) {
             NullByteFoundEvent::dispatch($clientOriginalName);
