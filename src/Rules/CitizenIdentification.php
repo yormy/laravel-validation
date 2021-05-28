@@ -111,7 +111,7 @@ class CitizenIdentification extends Rule
     {
         $key = 'core::validation.'.$this->getMessageKey();
 
-        $message = (string)_(
+        $message = _(
             $key,
             [
                 'attribute' => $this->getAttribute(),

@@ -2,16 +2,14 @@
 
 namespace Yormy\LaravelValidation\Rules;
 
+use Illuminate\Support\Str;
+use Yormy\LaravelValidation\Rules\Exceptions\RuleSetupException;
 use function __;
-
 use function array_map;
-
 use function explode;
 use function filter_var;
-use Illuminate\Support\Str;
 use function implode;
 use function in_array;
-use Yormy\LaravelValidation\Rules\Exceptions\RuleSetupException;
 
 /**
  * Only allow emails from whitelisted list of domains
@@ -41,7 +39,7 @@ class DomainRestrictedEmail extends Rule
             return false;
         }
 
-        $domain = (string) explode('@', $value)[1];
+        $domain = explode('@', $value)[1];
 
         return in_array($domain, $this->validDomains);
     }

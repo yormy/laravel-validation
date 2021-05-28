@@ -20,6 +20,6 @@ class Lowercase extends Rule
             return false;
         }
 
-        return mb_strtolower($value, 'UTF-8') === (string) $value;
+        return mb_strtolower($value, 'UTF-8') === $value;
     }
 }
