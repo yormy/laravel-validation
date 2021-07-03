@@ -17,7 +17,7 @@ class CurrentPasswordConfirmed extends Rule
     {
         $this->setAttribute($attribute);
 
-        if (Hash::check($attribute, $this->user->password)) {
+        if (Hash::check($value, $this->user->password)) {
             return true;
         }
 
@@ -29,8 +29,7 @@ class CurrentPasswordConfirmed extends Rule
      */
     public function message(): string
     {
-        //$key = 'core::validation.unique';
-        $key = 'validation.current_password';
+        $key = 'validation.' . $this->getMessageKey();
 
         $message = (string)__(
             $key,

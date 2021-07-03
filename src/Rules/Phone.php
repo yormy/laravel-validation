@@ -166,7 +166,7 @@ class Phone extends Rule
      */
     public function message(): string
     {
-        $key = 'core::validation.'.$this->getMessageKey();
+        $key = 'validation.' . $this->getMessageKey();
 
         switch ($this->format) {
             case static::FORMAT_DIGITS:
